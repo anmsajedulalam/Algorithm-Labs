@@ -1,0 +1,39 @@
+import java.util.*;
+import java.io.*;
+public class AdjacencyMatrix
+{
+  public static int v1,v2;
+  public static Scanner sc;
+  public static void main(String[]args)
+  {
+    try{
+      Scanner sc=new Scanner(new File("input.txt"));
+    }
+    catch(Exception e)
+    {
+      System.out.println("could not find file");
+    }
+    int vertex=sc.nextInt();
+    int matrix[] [] = new int [vertex+1] [vertex+1];
+    while(sc.hasNext())
+    {
+      v1=sc.nextInt();
+      v2=sc.nextInt();
+      matrix [v1] [v2] =1;
+    }
+    int i,j;
+    for(i=1;i<matrix.length;i++)
+    {
+      for(j=1;j<matrix.length;j++);
+      {
+        System.out.print(matrix[i][j]);
+      }
+    }
+//      System.out.print(matrix[i][j]);
+//      if(j==matrix.length-1)
+//      {
+//        System.out.println();
+//        
+    
+  }
+}

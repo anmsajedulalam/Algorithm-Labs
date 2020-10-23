@@ -1,0 +1,60 @@
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author 13101068
+ */
+public class shortestPath {
+    int [][]m;
+    int k;
+    int l;
+    Boolean[] flag;
+    int dis[];
+    void ReadFile() throws FileNotFoundException{
+    File f=new File("C:\\Users\\rahat boss\\Desktop\\lab3.txt");
+    Scanner mbs=new Scanner(f);
+    k=mbs.nextInt();
+    l=mbs.nextInt();
+    flag=new Boolean[k];
+    dis=new int[k];
+    m=new int[k][l];
+        while(mbs.hasNext()){
+            int c=mbs.nextInt(); 
+            int r=mbs.nextInt();
+            m[c][r]=1;
+            m[r][c]=1;
+        }
+    }
+    public int Bfs(int s,int d){
+        for(int i=0;i<k;i++){
+            flag[i]=false;
+            dis[i]=0;
+        }
+        flag[s]=true;
+        dis[s]=0;
+        Queue<Integer> q = new LinkedList<Integer>();
+        q.add(s);
+        while(!q.isEmpty()){
+            int u=q.poll();
+            for(int z=0;z<l;z++){
+                if(m[u][z]==1 && flag[z]==false){
+                    flag[z]=true;
+                    dis[z]=dis[u]+1;
+                    q.add(z);
+                }
+            }
+        }
+        return dis[d];
+    }  
+}

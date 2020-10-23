@@ -1,0 +1,21 @@
+
+import java.io.FileNotFoundException;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author U
+ */
+public class Tester {
+    public static void main(String[] args) throws FileNotFoundException{
+        shortestPath we = new shortestPath();
+        we.ReadFile();
+       int x= we.Bfs(0,4);
+        System.out.println(x);
+    }
+}
